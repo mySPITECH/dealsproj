@@ -18,7 +18,7 @@ import random
 # Create your views here.
 def homes(request):
     deals =Deals.objects.filter(status=True)
-    return render(request,'view/index.html',{'profile':profile,'user':user})
+    return render(request,'view/index.html',{'deals':deals})
 
 def home(request):
     deals =Deals.objects.filter(status=True)
