@@ -1,0 +1,114 @@
+body{
+    font-family: 'Varela Round', sans-serif;
+}
+#links{ padding: 5px;
+color:white;
+font-size:18px;
+font-family:arial;}
+header{
+
+
+background-image: linear-gradient(to right top, #3e04e3, #1639eb, #0053ef, #0068ee, #127aeb);
+padding: 16px;
+
+
+}
+input[type=text],#select{
+ border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+ color:rgb(65, 65, 65);
+padding:8px;
+}
+
+
+button{
+border-radius: 5px;
+ border: 1px solid #ccc;
+background-color:#D5B108;
+color:white;
+
+    margin: 0;
+    padding: 8px
+}
+.nav{
+float:right;}
+ .search button{
+}
+.main{
+}
+#search{
+padding:15px;
+margin-top:0;
+
+background-image: linear-gradient(to right top, #644aae, #5c56be, #5062ce, #3c6edd, #127aeb);}
+.search{
+padding-left:500px;
+}
+#brand-name{
+
+color:white;
+}
+#b{
+color:yellow;}
+
+@media only screen and (max-width: 740px) {
+  /* For mobile phones: */
+  .search{
+   padding:0; 
+  }
+.banner{
+background-image: linear-gradient(to right top, #f8f8f8, #e3f1ff, #b2f0ff, #69f2ff, #00f1e3, #00f2c5, #42f1a0, #70ee74, #96f26a, #b7f663, #d6f95f, #f4fb5f);
+padding:50px;
+}
+
+#search{
+padding:8px;
+margin-top:0;
+width:100%;
+background-image: linear-gradient(to right top, #644aae, #5c56be, #5062ce, #3c6edd, #127aeb);
+}
+input[type=text],#select{
+    display:inline-block;
+ border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+ color:rgb(184, 182, 182);
+padding:5px;
+}
+}
+header{
+}
+.banner{
+background-image: linear-gradient(to right top, #f8f8f8, #e3f1ff, #b2f0ff, #69f2ff, #00f1e3, #00f2c5, #42f1a0, #70ee74, #96f26a, #b7f663, #d6f95f, #f4fb5f);
+padding:100px;
+}
+#signup{
+    display: none;
+}
+.form{
+    display: none;  
+}
+
+    .login{
+        padding:30px;
+
+    border-radius:5px;
+    border:1px solid #ccc;
+    background-image: linear-gradient(to left, #644aae, #6242c1, #5e38d5, #592be8, #5217fb);}
+
+    footer{
+
+        padding:30px;
+        background-image: linear-gradient(to bottom, #404343, #474a4a, #4e5150, #565957, #5e605e); 
+        margin-bottom:0;
+        color:white;
+        }
+        #ft-menu{
+        display:block;
+        list-style:none;
+        }
+        #ft-menu a{
+        color:white;
+        font-size:1em;
+        }

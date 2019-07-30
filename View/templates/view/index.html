@@ -1,0 +1,108 @@
+{%extends 'generic.html'%}
+{% block title %}
+Deals Connect 
+{% endblock %}
+{%block contents%}
+
+
+<div class="banner">
+<h2 style="text-align:center; color:white;font-size:2em;"> Welcome to Deals Connect Test Site</h2>
+</div>
+<div id="search">
+<span>
+<form >
+<div class="search">
+<input type="text" placeholder="search a deal" required>
+<select id="select">
+<option>Select Category</option>
+</select>
+<button type="submit"><i class="fas fa-search"></i>search..</button>
+</div>
+</div>
+ </form>  
+</span>
+ <div class="container-fluid" style="background-color:#e8e8e8">
+        <div class="container container-pad" id="property-listings">
+            
+            <div class="row">
+              <div class="col-md-12">
+                <h1 style="text-align:center; font-size:1.5em;">Feautured Deals</h1>
+              </div>
+            </div>
+            
+            <div class="row">
+               
+{%for deal in deals%}
+                <div class="col-sm-6">  
+
+                    <!-- Begin Listing: 1220-32 N HOWARD ST-->
+					
+                    <div class="brdr bgc-fff pad-10 box-shad btm-mrg-20 property-listing">
+                        <div class="media">
+                            <a class="pull-left" href="#" target="_parent">
+                            <!--<img alt="image" class="img-responsive" src="http://images.prd.mris.com/image/V2/1/vGoNjc2jHGb87GlnnDQlf6LxeOUgIOn0bL6Wvn1nEnig2Ntq6W7xN5cOQBZZeNxl9O42DOkHUw0LNnj1ZB2KHA.jpg">-->
+                            </a>
+
+                            <div class="clearfix visible-sm"></div>
+
+                            <div class="media-body fnt-smaller">
+                                <a href="#" target="_parent"></a>
+
+                                <h4 class="media-heading">
+                                  <a href="{%url 'View:deal-details' deal.pk %}" target="_parent">{{deal.title}}<small class="pull-right"></small></a></h4>
+
+
+                                <ul class="list-inline mrg-0 btm-mrg-10 clr-535353">
+								{% for f in deal.framework %}
+                                    <li>{{f}}</li>
+
+                                    <li style="list-style: none">|</li>
+									{%endfor%}
+                                    
+                                </ul>
+
+                                <p class="hidden-xs">. ...</p><span class="fnt-smaller fnt-lighter fnt-arial">{{deal.about}}</span>
+                            </div>
+                        </div>
+                    </div>
+					
+					<!-- End Listing-->
+
+                    
+
+                   
+                </div>
+                
+				{% endfor %}
+				<!-- End Col -->
+            </div><!-- End row -->
+        </div><!-- End container -->
+    </div>
+    {% block javascript %}
+  <script>
+    var infinite = new Waypoint.Infinite({
+      element: $('.infinite-container')[0],
+      onBeforePageLoad: function () {
+        $('.loading').show();
+      },
+      onAfterPageLoad: function ($items) {
+        $('.loading').hide();
+      }
+    });
+  </script>
+  <div class="loading" style="display: none;">
+    Loading...
+  </div>
+<div class="container" style="text-align:center"  >
+  {% if deals.has_next %}
+    <a style="text-align:center" class="infinite-more-link" href="?page={{ deals.next_page_number }}">
+    <button class="btn btn-success btn-inline">next &raquo;</button></a>
+  {% endif %}
+   {% if deals.has_previous %}
+            <a style="text-align:center"  href="?page=1">&laquo; first</a>
+            <a  style="text-align:center" href="?page={{ deals.previous_page_number }}"><button class="btn btn-primary  btn-inline">
+           &laquo; previous</button></a>
+        {% endif %}
+  </div>
+{% endblock %}
+ {%endblock contents%}

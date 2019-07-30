@@ -1,0 +1,74 @@
+{% extends 'base.html'%}
+{% block content%}
+<style>
+
+</style>
+ <div class="container-fluid">
+ <table id="example" class="display nowrap">
+    <thead>
+        <tr>
+            <th width="200">Title</th>
+            <th tabulator-align="center">Status</th>
+            <th>Validity Status</th>
+            <th>Date</th>
+            <th width="150">Cleansing Status</th>
+            <th>View</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for d in deal%}
+        <tr>
+       
+            <td scope="row"><a href="{% url 'Backend:deal-detail' d.pk %}">{{d.title}}</a></td>
+            {% if d.status == False %}
+            <td style="color:red;">inactive</td>
+            {%else%}
+            <td style="color:green;">active</td>
+
+            {% endif %}
+            {% if d.is_valid == False %}
+            <td style="color:red;">invalid</td>
+            {% else %}
+            <td style="color:green;">valid</td>
+            {%endif%}
+            <td>{{d.date}}</td>
+           {% if d.is_verified == False %}
+            <td style="color:red;">unverified</td>
+            {% else %}
+            <td style="color:green;">verified</td>
+            {%endif%}
+            <td>{{d.views}}</td>
+        </tr>
+        {%endfor%}
+    </tbody>
+</table>
+ </div>
+<script>
+$(document).ready(function() {
+    $('#example').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ]
+    } );
+} );
+
+</script>
+ <script type="text/javascript" src=" https://cdn.datatables.net/buttons/1.5.6/js/dataTables.buttons.min.js"></script>
+<script type="text/javascript" src ="https://code.jquery.com/jquery-3.3.1.js"></script>
+
+
+<script type="text/javascript" src  = "https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.18/datatables.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.4.0/js/dataTables.buttons.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.4.0/js/buttons.flash.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.4.0/js/buttons.html5.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.4.0/js/buttons.print.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.4.0/css/buttons.dataTables.min.css"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script type="text/javascript" src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.27/build/pdfmake.min.js"></script>
+<script type="text/javascript" src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.27/build/vfs_fonts.js"></script>
+{%endblock%}

@@ -1,0 +1,182 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% block title%}{% endblock title%}</title>
+<link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+<link rel="stylesheet" type="text/css" href="{%static 'css/style.css'%}" >
+<link rel="stylesheet" type="text/css" href="{%static 'css/generic.css'%}" >
+
+</head>
+<body>
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v4.0
+&appId=1797597976998779&autoLogAppEvents=1"></script>
+<header>
+<a id="brand-name">Deals <span id="b">Connect</span></a>
+<nav class="nav">
+{%if user.is_authenticated %}
+<a id="links">{{user.first_name}} {{user.last_name}}</a>
+<a id="links" style="float:left;"><image src="{{profile.image.url}}" class="img-circle img-responsive"></a>
+<a id="links" href="{% url 'View:myprofile' %}"><i class="fas fa-tachometer-alt"></i>Dashboard</a>
+{% else %}
+<a id="links" class="reg"><i class="fas fa-user-plus"></i>Signup</a>
+
+<a id="links" class="login"><i class="fas fa-lock"></i>Login</a>
+{% endif %}
+
+</nav>
+</header>
+<div class="main">
+{%block contents%}
+{% endblock contents%}
+</div>
+<div class="container col-sm-8" id="signup" >
+<form method="POST" action="{% url 'View:signup2' %}">
+{% csrf_token %}
+
+	<div class="form-group ">
+		
+		    
+        <input name="first_name" class="form-control" id="id_first_name"
+		placeholder="First Name" type="text" required>
+    </div>
+	<div class="form-group ">
+		
+        <input name="last_name" class="form-control" id="id_last_name"
+		placeholder="Last Name" type="text" required>
+    </div>
+	 <!-- form-group// -->
+    <div class="form-group ">
+    	
+		 <p id="error"></p>
+        <input name="email" class="form-control" placeholder="Email address"  
+		type="email" id="id_email" required>
+    </div> <!-- form-group// -->
+    <div class="form-group ">
+    	
+		
+    	<input name="phone" class="form-control" placeholder="Phone number"
+		 type="text" id="phone" required>
+    </div> <!-- form-group// -->
+ <div class="form-group ">
+    	
+		<select class="form-control" name="gender" id="gender" required>
+			<option selected=""> Select Gender</option>
+			<option value="female">Female</option>
+			<option value="male">Male</option>
+			<option value="other">Other</option>
+		</select>
+	</div>
+	<div class="form-group ">
+		
+        <input name="username" class="form-control" id="id_username"
+		placeholder="Username" type="text" required>
+    </div>
+    <div class="form-group ">
+    	
+        <input class="form-control" name="password" id="pass1" placeholder="Create password"
+		 type="password" required>
+    </div> <!-- form-group// -->
+    <div class="form-group ">
+    
+        <input class="form-control" id="pass2" placeholder="Repeat password" 
+		type="password" required>
+    </div> <!-- form-group// -->                                      
+        <button type="submit" id='submit' class="btn btn-primary btn-block btn-lg"> Create Account  </button>
+    </div> <!-- form-group// -->      
+                                                                    
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="container-fluid " id="form">
+
+<form class="form" action="{% url 'View:login' %}" method="POST">
+{% csrf_token %}
+<div class="fb-login-button" data-width="" data-size="large" data-button-type="continue_with" 
+data-auto-logout-link="false" data-use-continue-as="false"></div>
+<p></p>
+<div class="form-group">
+<label><i class="fa fa-user" style="color:white;"></i></label>
+
+<input type="text" class="form-control" placeholder="username" name="username">
+</div>
+<div class="form-group">
+<label><i class="fa fa-lock" style="color:white;"></i></label>
+
+<input type="password" class="form-control" placeholder="password" name="pass">
+</div>
+<button  type="submit" class="btn btn-block btn-success">Login</button>
+
+
+</div>
+</div>
+
+</form>
+
+<footer>
+<div class="container">
+<ul style="float:left">
+<li id="ft-menu"><h4>Site Map</h4>
+<li id="ft-menu"><a>Contact</a></li>
+<li id="ft-menu"><a>About</a></li>
+<li id="ft-menu"><a>Home</a></li>
+<li id="ft-menu"><a>Faq</a></li>
+
+
+</ul>
+<ul style="float:left">
+<li id="ft-menu"><h4></h4>
+<li id="ft-menu"><a>Terms and Condition</a></li>
+<li id="ft-menu"><a>Create a deal</a></li>
+</ul>
+<form style="float:left">
+<ul>
+<li id="ft-menu"><h4>Subscribe to mail List..</h4></li>
+</ul>
+<div class="form-group">
+<input type="email" class="form-control" placeholder="@example.com">
+</div>
+<button type="submit" class="btn btn-secondery" > Submit</button>
+</form>
+</div>
+</div>
+</footer>
+<script>
+$(document).ready(function(){
+$('.reg').click(function(){
+	$('#signup').modal({
+				modalClass: "login",
+
+	});
+});
+
+$('.login').click(function(){
+	$('.form').modal({
+		modalClass: "login",
+	});
+});
+})
+</script>
+<!-- Remember to include jQuery :) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+<!-- jQuery Modal -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+</body>
+</html>

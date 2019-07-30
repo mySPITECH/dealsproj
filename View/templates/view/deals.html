@@ -1,0 +1,51 @@
+{%extends 'generic.html'%}
+
+{% block contents%}
+<div class="container-fluid">
+
+    <div class="row">
+               
+{%for deal in deals%}
+                <div class="col-sm-6">  
+
+                    <!-- Begin Listing: 1220-32 N HOWARD ST-->
+					
+                    <div class="brdr bgc-fff pad-10 box-shad btm-mrg-20 property-listing">
+                        <div class="media">
+                            <a class="pull-left" href="#" target="_parent">
+                            <!--<img alt="image" class="img-responsive" src="http://images.prd.mris.com/image/V2/1/vGoNjc2jHGb87GlnnDQlf6LxeOUgIOn0bL6Wvn1nEnig2Ntq6W7xN5cOQBZZeNxl9O42DOkHUw0LNnj1ZB2KHA.jpg">-->
+                            </a>
+
+                            <div class="clearfix visible-sm"></div>
+
+                            <div class="media-body fnt-smaller">
+                                <a href="#" target="_parent"></a>
+
+                                <h4 class="media-heading">
+                                  <a href="{%url 'View:deal-details' deal.pk %}" target="_parent">{{deal.title}}<small class="pull-right"></small></a></h4>
+
+
+                                <ul class="list-inline mrg-0 btm-mrg-10 clr-535353">
+								{% for f in deal.framework %}
+                                    <li>{{f}}</li>
+
+                                    <li style="list-style: none">|</li>
+									{%endfor%}
+                                    
+                                </ul>
+
+                                <p class="hidden-xs">. ...</p><span class="fnt-smaller fnt-lighter fnt-arial">{{deal.about}}</span>
+                            </div>
+                        </div>
+                    </div>
+					
+					<!-- End Listing-->
+
+                    
+
+                   
+                </div>
+                
+				{% endfor %}
+                </div>
+{% endblock contents%}
