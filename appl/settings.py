@@ -76,14 +76,10 @@ WSGI_APPLICATION = 'appl.wsgi.application'
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 DATABASES = {
-     """"'default': {
+     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'deals_master',
-        'USER': 'postgres',
-        'PASSWORD':'root',
-        'HOST': 'localhost',
-        'PORT': '',
-    }"""
+        
+    }
 }
 
 # Password validation
