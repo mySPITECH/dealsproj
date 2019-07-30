@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'n!0i1hpo(s)il56+x!)08#t8ilh$9plij2$u-4r83^9m=#(ae='
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['localhost','dealsconnect.herokuapp.com']
+ALLOWED_HOSTS = ['localhost','dealsconnect.herokuapp.com',]
 
 
 # Application definition
