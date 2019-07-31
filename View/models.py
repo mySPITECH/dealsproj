@@ -108,10 +108,5 @@ class Payment(models.Model):
     bank = models.CharField( max_length=50)
     amount = models.CharField( max_length=50)
     teller= models.ImageField( upload_to="teller/%d/%m/%y", max_length=50)
-class Review(models.Model):
-    text =models.TextField()
-    stars= models.BigIntegerField()
-    deal = models.ForeignKey(Deals, on_delete=models.CASCADE)
-    op = models.ForeignKey(User, on_delete=models.CASCADE)
 
 
