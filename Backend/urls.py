@@ -21,4 +21,4 @@ path('user_admin/',views.user_manage,name='user-admin'),
 
 
 
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -27,4 +27,4 @@ path('logout/',views.log_uerout,name='logout'),
 
 
     
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
