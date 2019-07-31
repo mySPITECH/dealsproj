@@ -23,9 +23,6 @@ path('logout/',views.log_uerout,name='logout'),
         path('mydeals/',views.user_deals,name='mydeal'),
     url(r'^request-deal/',views.deal_process,name="request_deal"),
         url(r'^dashboard/',views.dashboard,name="dashboard"),
-
-
-
-
-    
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+   
+]
+urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

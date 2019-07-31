@@ -113,7 +113,5 @@ class Review(models.Model):
     stars= models.BigIntegerField()
     deal = models.ForeignKey(Deals, on_delete=models.CASCADE)
     op = models.ForeignKey(User, on_delete=models.CASCADE)
-class Path(models.Model):
-    path =models.CharField(max_length=50)
 
 
